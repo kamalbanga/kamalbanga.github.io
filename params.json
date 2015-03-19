@@ -1,0 +1,1 @@
+{"name":"Kamalbanga.GitHub.io","tagline":"Blog","body":"In Apache Spark, let \r\n```val rdd1 = sc.parallelize(Seq(1,2,3))```, then we can get a pair RDD by doing ```val rdd2 = rdd1.map(x => (x, x))```, or even better ```val rdd2 = rdd1.keyBy(x => x)```.\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
