@@ -1,1 +1,1 @@
-[My Apache Spark blog](kamalbanga.github.io) 
+[My Apache Spark blog](https://kamalbanga.github.io) 
