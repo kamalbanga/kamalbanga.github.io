@@ -27,8 +27,8 @@
       <header>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
-            <h1>Kamalbanga.GitHub.io</h1>
-            <h2>Blog</h2>
+            <h1>Apache Spark</h1>
+            <h2>blog</h2>
           </span>
           <span class="left-tail"></span>
           <span class="right-tail"></span>
@@ -48,7 +48,7 @@
         <p>In Apache Spark, let 
 <code>val rdd1 = sc.parallelize(Seq(1,2,3))</code>, then we can get a pair RDD by doing <code>val rdd2 = rdd1.map(x =&gt; (x, x))</code>, or even better <code>val rdd2 = rdd1.keyBy(x =&gt; x)</code>.</p>
 
-<p>Often a pair RDD function on an RDD of type tuple, for e.g., RDD[(Int, String)] won't recognize PairRDDFunctions such as <code>reduceByKey</code> or <code>join</code>. This issue occurs when Spark version earlier than 1.3 is used. The solution is just to do <code>import org.apache.spark.SparkContext.rddToPairRDDFunctions</code>. The reason is <a href="https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala#L285">this implicit function</a> which takes RDD and makes it a PairRDDFunctions is defined in <code>SparkContext</code>. </p>
+<p>Often a pair RDD function on an RDD of type tuple, for e.g., RDD[(Int, String)] won't recognize PairRDDFunctions such as <code>reduceByKey</code> or <code>join</code>. This issue occurs when Spark version earlier than 1.3 is used. The solution is just to do <code>import org.apache.spark.SparkContext.rddToPairRDDFunctions</code>. The reason is <a href="https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala#L1544">this implicit function</a> which takes RDD and makes it a PairRDDFunctions is defined in <code>SparkContext</code>. </p>
 
 <p>Same with <code>DStream</code>, we have to <code>import org.apache.spark.streaming.StreamingContext.toPairDStreamFunctions</code>.</p>
 
