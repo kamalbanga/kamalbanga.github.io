@@ -1,2 +1,8 @@
 In Apache Spark, let 
 ```val rdd1 = sc.parallelize(Seq(1,2,3))```, then we can get a pair RDD by doing ```val rdd2 = rdd1.map(x => (x, x))```, or even better ```val rdd2 = rdd1.keyBy(x => x)```.
+
+Often a pair RDD function on an RDD of type tuple, for e.g., RDD[(Int, String)] won't recognize PairRDDFunctions such as `reduceByKey` or `join`. This issue occurs when Spark version earlier than 1.3 is used. The solution is just to do `import org.apache.spark.SparkContext.rddToPairRDDFunctions`. The reason is [this implicit function](https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala#L285) which takes RDD and makes it a PairRDDFunctions is defined in `SparkContext`. 
+
+Same with `DStream`, we have to `import org.apache.spark.streaming.StreamingContext.toPairDStreamFunctions`.
+
+In Spark v1.3, this implicit function is moved to [companion object of RDD](https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala#L1544) & DStream.
