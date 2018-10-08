@@ -2,7 +2,7 @@ title: Kamalbanga.GitHub.io
 description: Blog
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-merlot
+theme: jekyll-theme-leap-day
 
 gems:
   - jekyll-mentions
