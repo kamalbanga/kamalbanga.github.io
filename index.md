@@ -269,3 +269,6 @@ Specialized tools usually outperform or are more accurate than general purpose t
     all(log2(2 ** x) == x for x in range(100)) # True
     ```
  - In PySpark, `key_value_rdd.countByKey()` is way faster than`key_value_rdd.groupBy().mapValues(len).collect()` because of less shuffling involved.
+
+
+Sample mathematics test: $$\forall x \in R$$
